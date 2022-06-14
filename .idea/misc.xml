@@ -5,10 +5,10 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.4115" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/detail_soccer.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/fragment_soccer.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/detail_soccer.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_soccer.xml" value="0.1" />
         <entry key="app/src/main/res/layout/home_soccer.xml" value="0.4890625" />
-        <entry key="app/src/main/res/layout/list_item_soccer.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/list_item_soccer.xml" value="0.14638783269961977" />
       </map>
     </option>
   </component>

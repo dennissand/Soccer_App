@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.soccerapp.adapter.SoccerAdapter
 import com.example.soccerapp.data.datamodels.Result
 import com.example.soccerapp.databinding.FragmentSoccerBinding
@@ -40,7 +42,7 @@ class SoccerFragment : Fragment() {
 
         Log.e("---", "Fragment")
 
-        if(viewModel.clubs.value != null){
+        if (viewModel.clubs.value != null) {
             updateAdapter(viewModel.clubs.value!!)
         }
 
@@ -52,6 +54,7 @@ class SoccerFragment : Fragment() {
                 updateAdapter(it)
             }
         )
+        binding.rvResults.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
     }
 
     fun updateAdapter(list: List<Result>) {

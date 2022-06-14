@@ -5,16 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.net.toUri
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import coil.transform.RoundedCornersTransformation
 import com.example.soccerapp.R
 import com.example.soccerapp.data.datamodels.Result
 import com.example.soccerapp.ui.SoccerFragmentDirections
-import com.google.android.material.card.MaterialCardView
 
 class SoccerAdapter(
     private val dataset: List<Result>,
@@ -25,7 +23,7 @@ class SoccerAdapter(
         val tv_value: TextView = itemView.findViewById(R.id.tv_value)
         val tv_country: TextView = itemView.findViewById(R.id.tv_country)
         val tv_name: TextView = itemView.findViewById(R.id.tv_name)
-        val cv_club: CardView = itemView.findViewById<MaterialCardView>(R.id.cv_club)
+        val cl_item: ConstraintLayout = itemView.findViewById(R.id.cl_item)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -41,10 +39,9 @@ class SoccerAdapter(
         val item = dataset[position]
         val imgUri = item.image.toUri().buildUpon().scheme("https").build()
 
-        holder.iv_image.load(imgUri) {
-            transformations(RoundedCornersTransformation(20f))
-        }
-        holder.cv_club.setOnClickListener {
+        holder.iv_image.load(imgUri)
+
+        holder.cl_item.setOnClickListener {
             holder.itemView.findNavController()
                 .navigate(SoccerFragmentDirections.actionSoccerFragmentToSoccerDetail(position))
         }
