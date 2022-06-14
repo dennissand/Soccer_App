@@ -6,14 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.soccerapp.adapter.SoccerAdapter
+import com.example.soccerapp.data.datamodels.Result
 import com.example.soccerapp.databinding.FragmentSoccerBinding
 
 class SoccerFragment : Fragment() {
 
-    private val viewModel: SoccerViewModel by viewModels()
+    private val viewModel: SoccerViewModel by activityViewModels()
 
     private lateinit var binding: FragmentSoccerBinding
 
@@ -37,18 +38,28 @@ class SoccerFragment : Fragment() {
 
         viewModel.loadClubs()
 
-        Log.e("---","Fragment" )
+        Log.e("---", "Fragment")
+
+        if(viewModel.clubs.value != null){
+            updateAdapter(viewModel.clubs.value!!)
+        }
+
+        Log.e("---", "update Adapter")
 
         viewModel.clubs.observe(
             viewLifecycleOwner,
             Observer {
-                if (this::adapter.isInitialized) {
-                    adapter.notifyDataSetChanged()
-                } else {
-                    adapter = SoccerAdapter(it)
-                    binding.rvResults.adapter = adapter
-                }
+                updateAdapter(it)
             }
         )
+    }
+
+    fun updateAdapter(list: List<Result>) {
+        if (binding.rvResults.adapter != null) {
+            adapter.notifyDataSetChanged()
+        } else {
+            adapter = SoccerAdapter(list)
+            binding.rvResults.adapter = adapter
+        }
     }
 }

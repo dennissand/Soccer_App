@@ -5,12 +5,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.net.toUri
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.example.soccerapp.R
 import com.example.soccerapp.data.datamodels.Result
+import com.example.soccerapp.ui.SoccerFragmentDirections
+import com.google.android.material.card.MaterialCardView
 
 class SoccerAdapter(
     private val dataset: List<Result>,
@@ -21,6 +25,7 @@ class SoccerAdapter(
         val tv_value: TextView = itemView.findViewById(R.id.tv_value)
         val tv_country: TextView = itemView.findViewById(R.id.tv_country)
         val tv_name: TextView = itemView.findViewById(R.id.tv_name)
+        val cv_club: CardView = itemView.findViewById<MaterialCardView>(R.id.cv_club)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -39,7 +44,11 @@ class SoccerAdapter(
         holder.iv_image.load(imgUri) {
             transformations(RoundedCornersTransformation(20f))
         }
-        //holder.iv_image.id = item.image.length
+        holder.cv_club.setOnClickListener {
+            holder.itemView.findNavController()
+                .navigate(SoccerFragmentDirections.actionSoccerFragmentToSoccerDetail(position))
+        }
+
         holder.tv_name.text = item.name
         holder.tv_country.text = item.country
         holder.tv_value.text = "${item.value} Millionen €"

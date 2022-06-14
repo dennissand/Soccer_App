@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SOCCER APP</string>
     <string name="club_name">Bayern München</string>
@@ -8,5 +9,4 @@
     <string name="text_detail">Der Club %1$s aus %2$s hat aktuell einen Wert von %3$d Millionen €.
     Der Club %1$s hat in seiner bisherigen Vereinsgeschichte %4$d Europäische Titel erspielt.
     </string>
-
 </resources>
