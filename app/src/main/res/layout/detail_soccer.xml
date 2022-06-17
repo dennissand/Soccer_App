@@ -31,7 +31,7 @@
             android:id="@+id/toolbar2"
             android:layout_width="match_parent"
             android:layout_height="68dp"
-            android:background="?attr/colorPrimary"
+            android:background="@color/green_primary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,12 +41,11 @@
         <ImageButton
             android:id="@+id/back_btn"
             android:layout_width="50dp"
-            android:layout_height="48dp"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:adjustViewBounds="true"
-            android:background="@color/green_light"
-            android:contentDescription="@string/todo"
+            android:background="@color/green_primary"
             android:cropToPadding="true"
             android:src="?attr/actionModeCloseDrawable"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +80,7 @@
             tools:text="Deutschland" />
 
         <TextView
-            android:id="@+id/tv_text_detail"
+            android:id="@+id/tv_text_detail1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -93,6 +92,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_image_detail" />
+
+
+        <TextView
+            android:id="@+id/tv_text_detail2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:text=""
+            android:textSize="24sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_text_detail1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

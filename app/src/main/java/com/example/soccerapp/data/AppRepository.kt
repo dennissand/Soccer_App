@@ -18,11 +18,23 @@ class AppRepository(private val api: SoccerApi) {
         Log.e("---", "Repo get Results")
         try {
             val soccerList = api.retrofitService.getClubs()
-            _results.value = soccerList
+            _results.value = soccerList.sortedBy { it.name }
 
             Log.d("---", soccerList.toString())
         } catch (e: Exception) {
             Log.e(TAG, "Error loading Soccer Daten from API: $e")
+        }
+    }
+
+    fun sortResultsByAbc() {
+        if (_results.value != null) {
+            _results.value = _results.value?.sortedBy { it.name }
+        }
+    }
+
+    fun sortResultsByValue() {
+        if (_results.value != null) {
+            _results.value = _results.value?.sortedByDescending { it.value }
         }
     }
 }

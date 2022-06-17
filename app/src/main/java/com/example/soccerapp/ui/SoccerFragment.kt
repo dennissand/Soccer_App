@@ -54,15 +54,33 @@ class SoccerFragment : Fragment() {
                 updateAdapter(it)
             }
         )
-        binding.rvResults.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
+
+        viewModel.isSortByAbc.observe(
+            viewLifecycleOwner,
+            Observer {
+                if (viewModel.clubs.value != null) {
+                    if (it) {
+                        viewModel.sortByAbc()
+                    } else {
+                        viewModel.sortByValue()
+                    }
+                }
+            }
+        )
+        binding.rvResults.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(),
+                LinearLayoutManager.VERTICAL
+            )
+        )
+
+        binding.toggelBtn.setOnClickListener {
+            viewModel.toggleSort()
+        }
     }
 
     fun updateAdapter(list: List<Result>) {
-        if (binding.rvResults.adapter != null) {
-            adapter.notifyDataSetChanged()
-        } else {
-            adapter = SoccerAdapter(list)
-            binding.rvResults.adapter = adapter
-        }
+        adapter = SoccerAdapter(list)
+        binding.rvResults.adapter = adapter
     }
 }

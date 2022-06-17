@@ -1,14 +1,23 @@
 <resources>
+
     <string name="app_name">SOCCER APP</string>
+
+    <!--//SoccerFragment -->
     <string name="club_name">Bayern München</string>
     <string name="club_country">Deutschland</string>
     <string name="club_value">350 Millionen €</string>
+    <string name="club_logo">Club_Logo</string>
+
+    <!-- SoccerDetail -->
+   <!-- <string name="text_detail">Der Club %1$s aus %2$s hat aktuell einen Wert von %3$d Millionen €.
+    Der Club %1$s hat in seiner bisherigen Vereinsgeschichte %4$d Europäische Titel erspielt.</string> -->
 
     <string name="club_name_toolbar">%1$s</string>
-    <string name="text_detail">Der Club %1$s aus %2$s hat aktuell einen Wert von %3$d Millionen €.
-    Der Club %1$s hat in seiner bisherigen Vereinsgeschichte %4$d Europäische Titel erspielt.
-    </string>
-    <string name="club_logo">Club_Logo</string>
-    <string name="todo">TODO</string>
+
+    <string name="details_1">Der Club</string>
+    <string name="details_club">%1$s</string>
+    <string name="details_2">aus %1$s hat einen Wert von %2$d Millionen €.</string>
+    <string name="detail_siege">%1$s konnte bisher %2$d Titel auf europäischer Ebene erreichen können. </string>
+
 
 </resources>
