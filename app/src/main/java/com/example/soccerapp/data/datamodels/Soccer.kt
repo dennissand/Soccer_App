@@ -1,6 +1,12 @@
 package com.example.soccerapp.data.datamodels
 
-data class Result(
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
+data class Soccer(
+
+    @PrimaryKey
     val name: String,
     val country: String,
     val value: Int,

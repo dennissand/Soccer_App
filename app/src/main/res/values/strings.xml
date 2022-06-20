@@ -18,6 +18,7 @@
     <string name="details_club">%1$s</string>
     <string name="details_2">aus %1$s hat einen Wert von %2$d Millionen €.</string>
     <string name="detail_siege">%1$s konnte bisher %2$d Titel auf europäischer Ebene erreichen können. </string>
+    <string name="all_about_apps">All About Apps</string>
 
 
 </resources>

@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.soccerapp.adapter.SoccerAdapter
-import com.example.soccerapp.data.datamodels.Result
+import com.example.soccerapp.data.datamodels.Soccer
 import com.example.soccerapp.databinding.FragmentSoccerBinding
 
 class SoccerFragment : Fragment() {
@@ -77,9 +77,21 @@ class SoccerFragment : Fragment() {
         binding.toggelBtn.setOnClickListener {
             viewModel.toggleSort()
         }
+
+        val imageList = binding.rvResults
+
+        val imageListAdapter = SoccerAdapter(emptyList())
+
+        imageList.adapter = imageListAdapter
+
+        viewModel.clubs.observe(
+            viewLifecycleOwner
+        ) {
+            imageListAdapter.submitList(it)
+        }
     }
 
-    fun updateAdapter(list: List<Result>) {
+    private fun updateAdapter(list: List<Soccer>) {
         adapter = SoccerAdapter(list)
         binding.rvResults.adapter = adapter
     }

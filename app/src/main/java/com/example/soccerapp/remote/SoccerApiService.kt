@@ -1,6 +1,6 @@
 package com.example.soccerapp.remote
 
-import com.example.soccerapp.data.datamodels.Result
+import com.example.soccerapp.data.datamodels.Soccer
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -21,7 +21,7 @@ private val retrofit = Retrofit.Builder()
 interface SoccerApiService {
 
     @GET("hiring/clubs.json")
-    suspend fun getClubs(): List<Result>
+    suspend fun getClubs(): List<Soccer>
 }
 
 object SoccerApi {
