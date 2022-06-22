@@ -21,8 +21,6 @@ class SoccerViewModel(application: Application) : AndroidViewModel(application) 
     private val repository = AppRepository(SoccerApi, database)
 
     private val _loading = MutableLiveData<ApiStatus>()
-    val loading: LiveData<ApiStatus>
-        get() = _loading
 
     val clubs = repository.soccerList
 

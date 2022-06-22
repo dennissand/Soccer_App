@@ -19,6 +19,9 @@
     <string name="details_2">aus %1$s hat einen Wert von %2$d Millionen €.</string>
     <string name="detail_siege">%1$s konnte bisher %2$d Titel auf europäischer Ebene erreichen können. </string>
     <string name="all_about_apps">All About Apps</string>
+    <string name="back_button">Back Button</string>
+    <string name="toggel_button">toggel Button: Alphabetisch oder nach Wert des Clubs</string>
+    <string name="logo_club">Club_ Logo</string>
 
 
 </resources>

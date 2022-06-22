@@ -8,11 +8,9 @@ import com.example.soccerapp.data.local.SoccerDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-const val TAG = "AppRepository TAG"
-
 class AppRepository(private val api: SoccerApi, private val database: SoccerDatabase) {
 
-    val _soccerList = MutableLiveData<List<Soccer>>()
+    private val _soccerList = MutableLiveData<List<Soccer>>()
     val soccerList: LiveData<List<Soccer>>
         get() = _soccerList
 

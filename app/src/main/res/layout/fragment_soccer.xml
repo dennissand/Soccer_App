@@ -94,7 +94,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_filter_list_24"
             tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck"
-            android:contentDescription="toggel Button: Aplphabetish oder nach WErt des Clubs" />
+            android:contentDescription="@string/toggel_button" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

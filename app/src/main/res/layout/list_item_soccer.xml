@@ -16,7 +16,7 @@
             android:id="@+id/iv_image"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:contentDescription="Club_ Logo"
+            android:contentDescription="@string/logo_club"
             android:cropToPadding="true"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"

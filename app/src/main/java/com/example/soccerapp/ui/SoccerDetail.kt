@@ -33,7 +33,7 @@ class SoccerDetail : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.detail_soccer, container, false)
         return binding.root
     }

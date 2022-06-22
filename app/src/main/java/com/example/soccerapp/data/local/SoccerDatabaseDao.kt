@@ -17,6 +17,4 @@ interface SoccerDatabaseDao {
 
     @Query("DELETE from Soccer")
     fun deleteAll()
-
-
 }

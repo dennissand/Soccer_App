@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.soccerapp.adapter.SoccerAdapter
@@ -20,13 +19,13 @@ class SoccerFragment : Fragment() {
 
     private lateinit var binding: FragmentSoccerBinding
 
-    lateinit var adapter: SoccerAdapter
+    private lateinit var adapter: SoccerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentSoccerBinding.inflate(inflater, container, false)
         return binding.root
@@ -49,24 +48,22 @@ class SoccerFragment : Fragment() {
         Log.e("---", "update Adapter")
 
         viewModel.clubs.observe(
-            viewLifecycleOwner,
-            Observer {
-                updateAdapter(it)
-            }
-        )
+            viewLifecycleOwner
+        ) {
+            updateAdapter(it)
+        }
 
         viewModel.isSortByAbc.observe(
-            viewLifecycleOwner,
-            Observer {
-                if (viewModel.clubs.value != null) {
-                    if (it) {
-                        viewModel.sortByAbc()
-                    } else {
-                        viewModel.sortByValue()
-                    }
+            viewLifecycleOwner
+        ) {
+            if (viewModel.clubs.value != null) {
+                if (it) {
+                    viewModel.sortByAbc()
+                } else {
+                    viewModel.sortByValue()
                 }
             }
-        )
+        }
         binding.rvResults.addItemDecoration(
             DividerItemDecoration(
                 requireContext(),

@@ -15,7 +15,6 @@ import com.example.soccerapp.R
 import com.example.soccerapp.data.datamodels.Soccer
 import com.example.soccerapp.ui.SoccerFragmentDirections
 
-
 class SoccerAdapter(
     private var dataset: List<Soccer>,
 ) : RecyclerView.Adapter<SoccerAdapter.ItemViewHolder>() {
@@ -28,11 +27,11 @@ class SoccerAdapter(
 
     // der Viewholder weiß welche Teile des Layout beim Recycling angepasst werden
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val iv_image: ImageView = itemView.findViewById(R.id.iv_image)
-        val tv_value: TextView = itemView.findViewById(R.id.tv_value)
-        val tv_country: TextView = itemView.findViewById(R.id.tv_country)
-        val tv_name: TextView = itemView.findViewById(R.id.tv_name)
-        val cl_item: ConstraintLayout = itemView.findViewById(R.id.cl_item)
+        val ivImage: ImageView = itemView.findViewById(R.id.iv_image)
+        val tvValue: TextView = itemView.findViewById(R.id.tv_value)
+        val tvCountry: TextView = itemView.findViewById(R.id.tv_country)
+        val tvName: TextView = itemView.findViewById(R.id.tv_name)
+        val clItem: ConstraintLayout = itemView.findViewById(R.id.cl_item)
     }
 
     // hier werden neue ViewHolder erstellt
@@ -53,16 +52,16 @@ class SoccerAdapter(
         val item = dataset[position]
         val imgUri = item.image.toUri().buildUpon().scheme("https").build()
 
-        holder.iv_image.load(imgUri)
+        holder.ivImage.load(imgUri)
 
-        holder.cl_item.setOnClickListener {
+        holder.clItem.setOnClickListener {
             holder.itemView.findNavController()
                 .navigate(SoccerFragmentDirections.actionSoccerFragmentToSoccerDetail(position))
         }
 
-        holder.tv_name.text = item.name
-        holder.tv_country.text = item.country
-        holder.tv_value.text = "${item.value} Millionen €"
+        holder.tvName.text = item.name
+        holder.tvCountry.text = item.country
+        holder.tvValue.text = "${item.value} Millionen €"
     }
 
     // damit der LayoutManager weiß wie lang die Liste ist
